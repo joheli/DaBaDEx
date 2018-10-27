@@ -26,4 +26,4 @@ The parameter files are almost self-explanatory. Just a couple of hints that sho
   * lines starting with a hash ('#') are comments
   * numeric fields: integer, double, real, etc. have to be suffixed with a single apostrophe to avoid them being surrounded by quotes during upload
   * `action` - depending on the primary keys in the receiving table of the database DaBaDEx can behave in two different ways when trying to upload entries already present: it can replace fields other than the key(s) (`action = update`) or it can leave them untouched (`action = keep`).
-  * `driver` - please obtain the correct JDBC driver ([JDBC driver Wikipedia entry](https://en.wikipedia.org/wiki/JDBC_driver)) for your database and enter the driver here; e.g. for PostgreSQL the entry will be `org.postgresql.Driver` and for MySQL `com.mysql.jdbc.Driver` or similar.  
+  * `driver` - please obtain the correct JDBC driver (see the [JDBC driver Wikipedia entry](https://en.wikipedia.org/wiki/JDBC_driver)) for your database and enter the driver here; e.g. for PostgreSQL the entry will be `org.postgresql.Driver` and for MySQL `com.mysql.jdbc.Driver` or similar.  
