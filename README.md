@@ -1,6 +1,6 @@
 # DaBaDEx
 
-DaBaDEx tool to exchange data between databases using a simple text file to store output or intermediate data.
+DaBaDEx is a tool to download text data from and/or upload text data into databases using a simple text (csv) file to store output data.
 
 ## Outset
 
