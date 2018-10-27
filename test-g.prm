@@ -1,0 +1,61 @@
+# Parameters for DaBaDEx -g (mode 'get')
+
+# Location of file to contain exported query
+
+exportFile = testdb/exp.csv
+
+# Query
+# Provide either the query or a file containing the query (this may be
+# preferable for long queries).
+
+query = testdb/test.sql
+
+# Query type
+# Specify, whether the query invokes a stored procedure.
+
+storedProcedure = false
+
+# Cron Schedule (optional)
+# To defer or schedule the present task, use this parameter.
+# Refer to the manual at
+# http://www.sauronsoftware.it/projects/cron4j/manual.php
+# as to the formulation of scheduling patterns.
+
+#cronSchedule = * * * * *
+
+# Database connection
+# The following fields contain all necessary information to connect to
+# the database.
+# Preinstalled options include drivers for
+# PostgreSQL, MySQL, Sybase, and MS SQL Server. Other databases can be
+# accessed through further third party jdbc drivers made available in the
+# classpath (e.g. as jar files copied into the lib folder); parameters
+# for dburl and driver have then to be adapted according to the supplier.
+
+dburl = jdbc:postgresql://localhost:5432/test
+
+# Alternatives (please uncomment to activate):
+# MySQL:
+#dburl = jdbc:mysql://server:port/database
+# Sybase:
+#dburl = jdbc:jtds:sybase://server:port/database
+# Microsoft SQL Server:
+#dburl = jdbc:jtds:sqlserver://server:port/database
+
+driver = org.postgresql.Driver
+
+# Alternatives:
+# MySQL:
+#driver = com.mysql.jdbc.Driver
+# Sybase and MS SQL Server:
+#driver = net.sourceforge.jtds.jdbc.Driver
+
+user = importer
+pass = importer
+
+# Follow up command (optional)
+# If provided, this command is executed after completion of the present task. 
+# This option can e.g. be used to couple data extraction from one database to data 
+# upload into another database.
+
+#followUp = notepad
