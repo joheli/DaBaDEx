@@ -31,8 +31,6 @@ The parameter files are almost self-explanatory. Just a couple of hints that sho
   
 ### Further things to consider
 
-DaBaDEx currently does not take care of intermediary files and log files after processing. Please consider adding a routine to clear or rotate those files regularly.
+  * DaBaDEx processes can be chained, i.e. you can follow a process in mode '-g' with one of mode '-p'. That way you can use DaBaDEx to get data from one database and put it into another!
+  * DaBaDEx currently does not take care of intermediary files and log files after processing. Please consider adding a routine to clear or rotate those files regularly.
 
-
-
-  * Please ensure that intermediary files
