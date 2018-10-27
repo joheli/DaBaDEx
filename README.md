@@ -24,6 +24,15 @@ DaBaDEx uses one switch ('-g' for 'get' and '-p' for 'put') and one correspondin
 The parameter files are almost self-explanatory. Just a couple of hints that should get you started:
 
   * lines starting with a hash ('#') are comments
-  * numeric fields: integer, double, real, etc. have to be suffixed with a single apostrophe to avoid them being surrounded by quotes during upload
+  * `dataFile` - this can be a directory or a file; if a directory is given, only the latest file within the directory is processed. Latter behaviour is helpful if the names of the files to be processed change (e.g. are added a timetstamp etc.).
+  * numeric fields in `fields`: integer, double, real, etc. have to be suffixed with a single apostrophe to avoid them being surrounded by quotes during upload
   * `action` - depending on the primary keys in the receiving table of the database DaBaDEx can behave in two different ways when trying to upload entries already present: it can replace fields other than the key(s) (`action = update`) or it can leave them untouched (`action = keep`).
   * `driver` - please obtain the correct JDBC driver (see the [JDBC driver Wikipedia entry](https://en.wikipedia.org/wiki/JDBC_driver)) for your database and enter the driver here; e.g. for PostgreSQL the entry will be `org.postgresql.Driver` and for MySQL `com.mysql.jdbc.Driver` or similar.  
+  
+### Further things to consider
+
+DaBaDEx currently does not take care of intermediary files and log files after processing. Please consider adding a routine to clear or rotate those files regularly.
+
+
+
+  * Please ensure that intermediary files
