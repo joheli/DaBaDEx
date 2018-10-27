@@ -1,4 +1,0 @@
-ArrayList<String> test = new ArrayList<String>();
-test.add("Fut");
-test.add("");
-test
