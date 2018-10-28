@@ -20,12 +20,12 @@ DaBaDEx uses one switch (`-g` for 'get' and `-p` for 'put') and one correspondin
 
 ### Parameter file
 
-The commented parameter files are almost self-explanatory. The following hints should get you started quickly:
+The commented parameter files (see [test-g.prm](test-g.prm) and [test-p.prm](test-p.prm) for modes 'get' and 'put', respectively) are almost self-explanatory. The following hints should get you started quickly:
 
   * lines starting with a hash ('#') are comments
   * `dataFile` (mode 'put') - this can be a directory or a file; if a directory is given, only the latest file within the directory is processed. Latter behaviour is helpful if the names of the files to be processed change (e.g. are added a timetstamp etc.).
   * numeric fields in `fields` (mode 'put'): integer, double, real, etc. have to be suffixed with a single apostrophe to avoid them being surrounded by quotes during upload, like so: `fieldname'`
-  * `action` (mode 'put') - depending on the primary keys in the receiving table of the database DaBaDEx can behave in two different ways when trying to upload entries already present: it can either replace fields other than the key(s) (`action = update`) or leave them untouched (`action = keep`).
+  * `action` (mode 'put') - depending on the primary key-gs in the receiving table of the database DaBaDEx can behave in two different ways when trying to upload entries already present: it can either replace fields other than the key(s) (`action = update`) or leave them untouched (`action = keep`).
   * `driver` - please obtain the correct JDBC driver (see the [JDBC driver Wikipedia entry](https://en.wikipedia.org/wiki/JDBC_driver)) for your database and enter the driver here; e.g. for PostgreSQL the entry will be `org.postgresql.Driver` and for MySQL `com.mysql.jdbc.Driver`.  
   
 ### Further things to consider
