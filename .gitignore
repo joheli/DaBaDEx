@@ -9,3 +9,6 @@ dabadex.Rproj
 
 # Ignore Gradle build output directory
 build
+
+# Ignore dabadex log
+DaBaDEx.log
