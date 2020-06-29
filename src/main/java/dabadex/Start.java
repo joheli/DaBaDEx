@@ -27,7 +27,23 @@ public class Start implements Runnable {
 		FileHandler fH = new FileHandler("DaBaDEx.log", true);
 		fH.setFormatter(new SimpleFormatter());
 		LOGGER.addHandler(fH);
-		LOGGER.setLevel(Level.FINEST); // <-- alter log level here.
+		LOGGER.setLevel(levelFromEnvironment()); 
+	}
+	
+	private Level levelFromEnvironment() {
+	  Level lvl = Level.INFO; // this is the default value.
+	  String lvl_e = System.getenv("DBDX_LOGLEVEL"); // if not set it will be null
+	  if (lvl_e != null) {
+	    try {
+	      lvl = Level.parse(lvl_e);
+	      Start.LOGGER.log(Level.INFO, "'DBDX_LOGLEVEL' was set to " + lvl_e + ".");
+	    } catch (Exception e) {
+	      Start.LOGGER.log(Level.INFO, "Content of 'DBDX_LOGLEVEL' (" + lvl_e + ") could not be successfully translated to valid log level.");
+	    } // if it doesn't work don't bother further.
+	  } else {
+	    Start.LOGGER.log(Level.INFO, "Environment variable 'DBDX_LOGLEVEL' was not set. Using default level.")
+	  }
+	  return lvl;
 	}
 
 	public static void main(String[] args) {
