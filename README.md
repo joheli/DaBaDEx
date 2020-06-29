@@ -20,7 +20,7 @@ DaBaDEx uses one switch (`-g` for 'get' and `-p` for 'put') and one correspondin
 
 ### Parameter file
 
-The commented parameter files (see [test-g.prm](test-g.prm) and [test-p.prm](test-p.prm) for modes 'get' and 'put', respectively) are almost self-explanatory. The following hints should get you started quickly:
+The commented parameter files (see [test-g.prm](parameters/test-g.prm) and [test-p.prm](parameters/test-p.prm) for modes 'get' and 'put', respectively) are almost self-explanatory. The following hints should get you started quickly:
 
   * lines starting with a hash ('#') are comments
   * `dataFile` (mode 'put') - this can be a directory or a file; if a directory is given, only the latest file within the directory is processed. Latter behaviour is helpful if the names of the files to be processed change (e.g. are added a timetstamp etc.).
