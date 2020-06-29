@@ -36,12 +36,12 @@ public class Start implements Runnable {
 	  if (lvl_e != null) {
 	    try {
 	      lvl = Level.parse(lvl_e);
-	      Start.LOGGER.log(Level.INFO, "'DBDX_LOGLEVEL' was set to " + lvl_e + ".");
+	      LOGGER.log(Level.INFO, "'DBDX_LOGLEVEL' was set to " + lvl_e + ".");
 	    } catch (Exception e) {
-	      Start.LOGGER.log(Level.INFO, "Content of 'DBDX_LOGLEVEL' (" + lvl_e + ") could not be successfully translated to valid log level.");
+	      LOGGER.log(Level.INFO, "Content of 'DBDX_LOGLEVEL' (" + lvl_e + ") could not be successfully translated to valid log level.");
 	    } // if it doesn't work don't bother further.
 	  } else {
-	    Start.LOGGER.log(Level.INFO, "Environment variable 'DBDX_LOGLEVEL' was not set. Using default level.")
+	    LOGGER.log(Level.INFO, "Environment variable 'DBDX_LOGLEVEL' was not set. Using default level.");
 	  }
 	  return lvl;
 	}
