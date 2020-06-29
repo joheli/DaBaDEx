@@ -13,7 +13,7 @@ import java.util.logging.SimpleFormatter;
 import utils.Utils;
 
 public class Start implements Runnable {
-	public final static String version = "0.0.9";
+	public final static String version = "0.1.0";
 	public final static Logger LOGGER = Logger.getLogger("DaBaDExLog");
 	public static int cycle = 1;
 	private DaBaDExParam p;
@@ -156,7 +156,7 @@ public class Start implements Runnable {
 
 	public static void help() {
 		System.out.println("\nUse:");
-		System.out.println("java -jar DaBaDEx.jar [-mode] [ParameterFile]");
+		System.out.println("{dabadex executable} [-mode] [ParameterFile]");
 		System.out.println("\t[-mode] can be '-p' (put) or '-g' (get)");
 		System.out
 				.println("\t[ParameterFile] is a textfile containing further arguments.\n");
