@@ -1,5 +1,7 @@
 # DaBaDEx
 
+![](https://github.com/joheli/DaBaDEx/workflows/Java%20CI/badge.svg)
+
 DaBaDEx is a tool to download text data from and/or upload text data into a database.
 
 ## Outset
