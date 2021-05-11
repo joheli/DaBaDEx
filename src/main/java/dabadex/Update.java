@@ -66,7 +66,7 @@ public class Update {
 				if (sql.startsWith("U"))
 					updates--;
 			}
-			lg.log(Level.SEVERE, s.getMessage());
+			lg.log(Level.SEVERE, "Error message: " + s.getMessage() + ", Caused by query: " + sql);
 		}
 	}
 
