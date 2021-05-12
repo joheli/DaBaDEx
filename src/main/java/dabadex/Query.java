@@ -25,11 +25,23 @@ public class Query {
 	}
 	
 	private void getData() throws SQLException {
-		lg.log(Level.FINE,"Sending query: " + p.getQuery());
+	  String sql = p.getQuery();
+		lg.log(Level.FINE,"Sending query: " + sql);
 		if (!p.getStoredProcedure()) {
-			rs = st.executeQuery(p.getQuery());
+		  // The query can be an insert statement without data to be uploaded (e.g. insert data from existing table to other).
+		  // These queries do not return a resultset and therefore generate an error.
+		  // To avoid that queries that contain "insert" are processed using executeUpdate.
+		  
+		  // check if sql contains pattern 'insert'
+		  if (sql.toLowerCase().contains("insert")) {
+		    // if yes: process with executeUpdate
+		    st.executeUpdate(sql);
+		  } else {
+		    // if no: process with executeQuery
+			  rs = st.executeQuery(sql);
+		  }
 		} else {
-			rs = conn.prepareCall(p.getQuery()).executeQuery();
+			rs = conn.prepareCall(sql).executeQuery();
 		}
 		dt = new DataReadIn(rs);
 		//st.close();
