@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -84,15 +85,23 @@ public class Update {
 
 	private String generateUpdateCommand() {
 		String sql = "UPDATE " + dbd.getTable() + " SET ";
+		ArrayList<String> header = p.getFields();
+		lg.log(Level.FINEST, "header: " + header.toString() + " // header.size: " + header.size());
+		lg.log(Level.FINEST, "dataRow: " + Arrays.toString(dataRow) + " // dataRow.length: " + dataRow.length);
 		for (int i = 0; i < dataRow.length; i++) {
-			sql = sql + p.getFields().get(i) + " = ";
-			if (dataRow[i].trim().equals("")) {
+		  String field = header.get(i);
+		  String data = dataRow[i];
+		  Boolean isNumericField = p.getNumeric().get(i);
+		  Boolean dataEmpty = new Boolean(data.trim().equals(""));
+		  lg.log(Level.FINEST, "field: " + header.get(i) + " // data: " + data +  " // numeric: " + isNumericField.toString());
+			sql = sql + field + " = ";
+			if (dataEmpty) {
 				sql = sql + "NULL";
 			} else {
-				if (p.getNumeric().get(i)) {
-					sql = sql + dataRow[i];
+				if (isNumericField) {
+					sql = sql + data;
 				} else {
-					sql = sql + encapsulateString(dataRow[i]);
+					sql = sql + encapsulateString(data);
 				}
 			}
 			if (i < (dataRow.length - 1))
