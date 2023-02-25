@@ -123,7 +123,7 @@ public class Start implements Runnable {
 					  // finally move dataFile to the specified directory
 					  FileUtils.moveFile(dFa, dF_Target);
 					  LOGGER.log(Level.FINE, 
-					    "File " + dFA.getAbsolutePath() + " was moved to " + dF_Target.getAbsolutePath() + ".");
+					    "File " + dFa.getAbsolutePath() + " was moved to " + dF_Target.getAbsolutePath() + ".");
 					}
 				} else {
 					Start.LOGGER.log(

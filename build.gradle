@@ -51,7 +51,7 @@ dependencies {
     implementation 'commons-io:commons-io:2.11.0'
     
     // https://mvnrepository.com/artifact/it.sauronsoftware.cron4j/cron4j
-    // implementation 'it.sauronsoftware.cron4j:cron4j:2.2.5'
+    implementation 'it.sauronsoftware.cron4j:cron4j:2.2.5'
     
     // https://mvnrepository.com/artifact/mysql/mysql-connector-java
     // implementation 'mysql:mysql-connector-java:5.0.8'
