@@ -9,6 +9,7 @@ import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
+import org.apache.commons.io.FileUtils;
 
 import utils.Utils;
 
@@ -90,6 +91,40 @@ public class Start implements Runnable {
 						u.relayCommand();
 					}
 					closeJob();
+					/* if specified, move dataFile
+					*/
+					String moveDirString = pP.parameters.get("moveDataFileToDir");
+					if (moveDirString != null) {
+					  // get File representation of dataFile (that is the file that has been processed)
+					  File dF = pP.getDataFile();
+					  // create or get File from absolute path 
+					  File dFa;
+					  if (dF.isAbsolute()) {
+					    dFa = dF;
+					  } else {
+					    dFa = new File(dF.getAbsolutePath());
+					  }
+					  // get File representation of directory to be moved to
+					  File moveDir = new File(moveDirString);
+					  // check if File contains absolute path
+					  File moveDirA;
+					  if (moveDir.isAbsolute()) {
+					    moveDirA = moveDir; // if yes, take the File 
+					  } else {
+					    // if no, create a new File representing a subdirectory of the parent of dataFile 
+					    moveDirA = new File(dFa.getParent() + File.separator + moveDirString);
+					  }
+					  // Create a File representation of target File
+					  File dF_Target = new File(moveDirA.getAbsolutePath() + File.separator + dF.getName());
+					  // if directory to be moved to doesn't exist, create it
+					  if (!moveDirA.exists()) {
+					    FileUtils.forceMkdir(moveDirA);
+					  }
+					  // finally move dataFile to the specified directory
+					  FileUtils.moveFile(dFa, dF_Target);
+					  LOGGER.log(Level.FINE, 
+					    "File " + dFA.getAbsolutePath() + " was moved to " + dF_Target.getAbsolutePath() + ".");
+					}
 				} else {
 					Start.LOGGER.log(
 							Level.INFO,

@@ -6,6 +6,10 @@
 
 dataFile = testdb/update.csv
 
+# Move dataFile after being successfully processed to specified directory (optional)
+# (if directory does not exist it will be created)
+# moveDataFileToDir = processed
+
 # Name of fields (table columns)
 # Important: Numeric fields, i.e. integer and floating 
 # point decimals are to be labeled with an apostrophe (').
