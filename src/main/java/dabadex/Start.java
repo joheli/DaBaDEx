@@ -14,7 +14,7 @@ import org.apache.commons.io.FileUtils;
 import utils.Utils;
 
 public class Start implements Runnable {
-	public final static String version = "0.1.2 dbg";
+	public final static String version = "0.1.3";
 	public final static Logger LOGGER = Logger.getLogger("DaBaDExLog");
 	public static int cycle = 1;
 	private DaBaDExParam p;
